@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model id="tcacycle3">
+    <listOfCompartments>
+      <compartment id="Default_Compartment"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="ADP" name="ADP" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C10H15N5O10P2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="ATP" name="ATP" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C10H16N5O13P3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="AcCoA" name="AcCoA" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C23H38N7O17P3S</p>
+          </body>
+        </notes>
+      </species>
+      <species id="AcCoAex" name="AcCoAex" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C23H38N7O17P3S</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Ala" name="Ala" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C3H7NO2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Asp" name="Asp" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C4H7NO4</p>
+          </body>
+        </notes>
+      </species>      
+      <species id="CO2" name="CO2" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: CO2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Cit" name="Cit" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C6H8O7</p>
+          </body>
+        </notes>
+      </species>
+      <species id="CoA" name="CoA" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C21H36N7O16P3S</p>
+          </body>
+        </notes>
+      </species>
+      <species id="F1_6PP" name="F1,6PP" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C6H14O12P2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Fum" name="Fum" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C4H4O4</p>
+          </body>
+        </notes>
+      </species>
+      <species id="G3P" name="G3P" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C3H7O6P</p>
+          </body>
+        </notes>
+      </species>
+      <species id="G6P" name="G6P" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C6H13O9P</p>
+          </body>
+        </notes>
+      </species>
+      <species id="G6Pex" name="G6Pex" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C6H13O9P</p>
+          </body>
+        </notes>
+      </species>
+      <species id="GDP" name="GDP" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C10H15N5O11P2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="GP" name="GP" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C3H7O6P</p>
+          </body>
+        </notes>
+      </species>
+      <species id="GTP" name="GTP" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C10H16N5O14P3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Glu" name="Glu" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C5H9NO4</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Gly" name="Gly" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C2H2O3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="H" name="H" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: H</p>
+          </body>
+        </notes>
+      </species>
+      <species id="H2O" name="H2O" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: H2O</p>
+          </body>
+        </notes>
+      </species>
+      <species id="HCO3_" name="HCO3-" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: CHO3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Isocit" name="Isocit" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C6H8O7</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Mal" name="Mal" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C4H6O5</p>
+          </body>
+        </notes>
+      </species>
+      <species id="NAD" name="NAD" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C21H28N7O14P2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="NADH" name="NADH" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C21H29N7O14P2</p>
+          </body>
+        </notes>
+      </species>
+      <species id="NADP" name="NADP" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C21H29N7O17P3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="NADPH" name="NADPH" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C21H30N7O17P3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="NH3" name="NH3" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: H3N</p>
+          </body>
+        </notes>
+      </species>
+      <species id="OAA" name="OAA" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C4H4O5</p>
+          </body>
+        </notes>
+      </species>
+      <species id="OG" name="OG" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C5H6O5</p>
+          </body>
+        </notes>
+      </species>
+      <species id="PEP" name="PEP" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C3H5O6P</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Pi" name="Pi" compartment="Default_Compartment" boundaryCondition="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: H3O4P</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Pyr" name="Pyr" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C3H4O3</p>
+          </body>
+        </notes>
+      </species>
+      <species id="SucCoA" name="SucCoA" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C25H40N7O19P3S</p>
+          </body>
+        </notes>
+      </species>
+      <species id="Succ" name="Succ" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C4H6O4</p>
+          </body>
+        </notes>
+      </species>
+      <species id="bF6P" name="bF6P" compartment="Default_Compartment" boundaryCondition="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>FORMULA: C6H13O9P</p>
+          </body>
+        </notes>
+      </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="ME1" name="Malate dehydrogenase (oxaloacetate-decarboxylating)" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (maeB)</p>
+            <p>SUBSYSTEM: Anaplerotic reactions</p>
+            <p>EC Number: 1.1.1.40</p>
+          </body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="Mal" stoichiometry="1"/>
+          <speciesReference species="NADP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Pyr" stoichiometry="1"/>
+          <speciesReference species="CO2" stoichiometry="1"/>
+          <speciesReference species="NADPH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>     
+      <reaction id="ex_G6P" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (ex_G6P)</p>
+          </body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="G6P" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="G6Pex" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="ex_AcCoA" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (ex_AcCoA)</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="AcCoAex" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AcCoA" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>     
+      <reaction id="ACO1_ACO2" name="Aconitase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (acnA) or (acnB)</p>
+            <p>EC Number: 4.2.1.3</p>
+          </body> 
+        </notes>
+        <listOfReactants>
+          <speciesReference species="Cit" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Isocit" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="GAPDH_PGK1_PGAM1_ENO1" name="Glyceraldehyde-3-phosphate dehydrogenase, phosphoglycerate kinase, phosphoglycerate mutase, enolase" reversible="true">
+      	<notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (b1417 and b1416 and pgk and gpmA and eno) or (b1417 and b1416 and pgk and ytjC and eno) or (b1417 and b1416 and pgk and gpmM and eno) or (gapA and pgk and eno)</p>
+            <p>EC Number: 1.2.1.12, 2.7.2.3, 5.4.2.1, 4.2.1.11</p>
+          </body>
+        </notes>            
+        <listOfReactants>
+          <speciesReference species="G3P" stoichiometry="1"/>
+          <speciesReference species="Pi" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+          <speciesReference species="ADP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PEP" stoichiometry="1"/>
+          <speciesReference species="ATP" stoichiometry="1"/>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="SUCLG2_SUCLG1_SUCLA2_ATP_" name="Succinyl-CoA synthetase (ADP)" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (sucC and sucD)</p>
+            <p>EC Number: 6.2.1.5</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="ATP" stoichiometry="1"/>
+          <speciesReference species="Succ" stoichiometry="1"/>
+          <speciesReference species="CoA" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ADP" stoichiometry="1"/>
+          <speciesReference species="Pi" stoichiometry="1"/>
+          <speciesReference species="SucCoA" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="GLUD1_NADPH_" name="Glutamate dehydrogenase (NADP)" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (gdhA)</p>
+            <p>SUBSYSTEM: Glutamate metabolism</p>
+            <p>EC Number: 1.4.1.4</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="OG" stoichiometry="1"/>
+          <speciesReference species="NH3" stoichiometry="1"/>
+          <speciesReference species="NADPH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Glu" stoichiometry="1"/>
+          <speciesReference species="NADP" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="OGDH_DLST_DLD" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (lpd and sucA and sucB)</p>
+            <p>SUBSYSTEM: Citric Acid Cycle</p>
+            <p>EC Number: </p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="OG" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+          <speciesReference species="CoA" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="SucCoA" stoichiometry="1"/>
+          <speciesReference species="CO2" stoichiometry="1"/>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="TPI1" name="Triose-phosphate isomerase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (tpiA)</p>
+            <p>EC Number: 5.3.1.1</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="G3P" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="GP" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="GOT1" name="Aspartate transaminase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (aspC)</p>
+            <p>SUBSYSTEM: Alanine and Aspartate Metabolism</p>
+            <p>EC Number: 2.6.1.1</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="OAA" stoichiometry="1"/>
+          <speciesReference species="Glu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Asp" stoichiometry="1"/>
+          <speciesReference species="OG" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>       
+      <reaction id="MDH1_MDH2" name="Malate dehydrogenase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (mdh)</p>
+            <p>EC Number: 1.1.1.37</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="Mal" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OAA" stoichiometry="1"/>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="GLUD1_NADH_" name="Glutamate dehydrogenase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (GLUD1_NADH_)</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="OG" stoichiometry="1"/>
+          <speciesReference species="NH3" stoichiometry="1"/>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Glu" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="PGI" name="Glucose-6P isomerase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (pgi)</p>
+            <p>SUBSYSTEM: Glycolysis/Gluconeogenesis</p>
+            <p>EC Number: 5.3.1.9</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="bF6P" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="G6P" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="SUCC_DEH" name="Fumarate reductase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (frdD and frdA and frdB and frdC)</p>
+            <p>EC Number: 1.3.99.1</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="Succ" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Fum" stoichiometry="1"/>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="SUCLG2_SUCLG1_SUCLA2_GTP_" name="Succinyl-CoA synthetase (GDP)" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (SUCLG2_SUCLG1_SUCLA2_GTP_)</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="GTP" stoichiometry="1"/>
+          <speciesReference species="Succ" stoichiometry="1"/>
+          <speciesReference species="CoA" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="GDP" stoichiometry="1"/>
+          <speciesReference species="Pi" stoichiometry="1"/>
+          <speciesReference species="SucCoA" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="PFKL" name="Phosphofructokinase" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (pfkA) or (pfkB)</p>
+            <p>SUBSYSTEM: Glycolysis/Gluconeogenesis</p>
+            <p>EC Number: 2.7.1.11</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="ATP" stoichiometry="1"/>
+          <speciesReference species="bF6P" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ADP" stoichiometry="1"/>
+          <speciesReference species="F1_6PP" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="CS" name="Citrate synthase" reversible="false">
+      <notes>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	      <p>EC number: 2.3.3.1</p>
+	      <p>GENE ASSOCIATION: (gltA)</p>
+	</body>	      
+	</notes>
+        <listOfReactants>
+          <speciesReference species="AcCoA" stoichiometry="1"/>
+          <speciesReference species="OAA" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cit" stoichiometry="1"/>
+          <speciesReference species="CoA" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="FBP1" name="Fructose bisphosphatase" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (fbp)</p>
+            <p>SUBSYSTEM: Glycolysis/Gluconeogenesis</p>
+            <p>EC Number: 3.1.3.11</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="F1_6PP" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="bF6P" stoichiometry="1"/>
+          <speciesReference species="Pi" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="MAS" name="Malate synthase" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (aceB) or (glcB)</p>
+            <p>EC Number: 2.3.3.9</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="AcCoA" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+          <speciesReference species="Gly" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Mal" stoichiometry="1"/>
+          <speciesReference species="CoA" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="PCK1" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (PCK1)</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="OAA" stoichiometry="1"/>
+          <speciesReference species="GTP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PEP" stoichiometry="1"/>
+          <speciesReference species="GDP" stoichiometry="1"/>
+          <speciesReference species="CO2" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="ICL" name="Isocitrate lyase" reversible="false">
+      <notes>
+      	<body xmlns="http://www.w3.org/1999/xhtml">
+	  <p>EC Number: 4.1.3.1</p>
+	  <p>GENE ASSOCIATION: (aceA)</p>
+	</body>
+      </notes>
+        <listOfReactants>
+          <speciesReference species="Isocit" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Succ" stoichiometry="1"/>
+          <speciesReference species="Gly" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="ALDOA_ALDOB" name="Aldolase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (ydjI) or (fbaB) or (fbaA)</p>
+            <p>SUBSYSTEM: Glycolysis/Gluconeogenesis</p>
+            <p>EC Number: 4.1.2.13</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="G3P" stoichiometry="1"/>
+          <speciesReference species="GP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="F1_6PP" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="PKLR" name="Pyruvate kinase" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (pykA) or (pykF)</p>
+            <p>SUBSYSTEM: Glycolysis/Gluconeogenesis</p>
+            <p>EC Number: 2.7.1.40</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="ADP" stoichiometry="1"/>
+          <speciesReference species="PEP" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ATP" stoichiometry="1"/>
+          <speciesReference species="Pyr" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="PDC" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (PDC)</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="Pyr" stoichiometry="1"/>
+          <speciesReference species="CoA" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+          <speciesReference species="AcCoA" stoichiometry="1"/>
+          <speciesReference species="CO2" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="FUM" name="Fumarase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (fumA) or (fumC) or (fumB)</p>
+            <p>EC Number: 4.2.1.2</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="Fum" stoichiometry="1"/>
+          <speciesReference species="H2O" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Mal" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="GPT" name="Alanine transaminase" reversible="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>GENE_ASSOCIATION: (GPT)</p>
+            <p>SUBSYSTEM: Alanine and Aspartate Metabolism</p>
+            <p>EC Number: 2.6.1.2</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="Ala" stoichiometry="1"/>
+          <speciesReference species="OG" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Pyr" stoichiometry="1"/>
+          <speciesReference species="Glu" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>      
+      <reaction id="IDH3A_IDH3B_IDH3G" name="Isocirate dehydrogenase" reversible="false">
+	<notes>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+		<p>EC Number: 1.1.1.41</p>
+		<p>GENE ASSOCIATION: (icd)</p>
+	</body>
+	</notes>      
+        <listOfReactants>
+          <speciesReference species="Isocit" stoichiometry="1"/>
+          <speciesReference species="NAD" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OG" stoichiometry="1"/>
+          <speciesReference species="CO2" stoichiometry="1"/>
+          <speciesReference species="NADH" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="PC" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+          <p>GENE_ASSOCIATION: (PC)</p>
+          </body>
+        </notes>      
+        <listOfReactants>
+          <speciesReference species="ATP" stoichiometry="1"/>
+          <speciesReference species="Pyr" stoichiometry="1"/>
+          <speciesReference species="HCO3_" stoichiometry="1"/>
+          <speciesReference species="H" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ADP" stoichiometry="1"/>
+          <speciesReference species="Pi" stoichiometry="1"/>
+          <speciesReference species="OAA" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
