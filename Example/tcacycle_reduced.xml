@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1" fbc:required="false" groups:required="false">
+  <model metaid="tcacycle.xml" id="M_tcacycle3" name="Model Exported from COBRA Toolbox" fbc:strict="true">
+    <listOfUnitDefinitions>
+      <unitDefinition id="mmol_per_gDW_per_hr">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+          <unit kind="gram" exponent="-1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment metaid="Default_Compartment" id="Default_Compartment" name="unknownCompartment1" constant="false"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species metaid="AcCoA__91__Default_Compartment__93__" id="AcCoA__91__Default_Compartment__93__" name="AcCoA" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C23H38N7O17P3S"/>
+      <species metaid="Cit__91__Default_Compartment__93__" id="Cit__91__Default_Compartment__93__" name="Cit" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C6H8O7"/>
+      <species metaid="Fum__91__Default_Compartment__93__" id="Fum__91__Default_Compartment__93__" name="Fum" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C4H4O4"/>
+      <species metaid="Gly__91__Default_Compartment__93__" id="Gly__91__Default_Compartment__93__" name="Gly" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C2H2O3"/>
+      <species metaid="Isocit__91__Default_Compartment__93__" id="Isocit__91__Default_Compartment__93__" name="Isocit" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C6H8O7"/>
+      <species metaid="Mal__91__Default_Compartment__93__" id="Mal__91__Default_Compartment__93__" name="Mal" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C4H6O5"/>
+      <species metaid="OAA__91__Default_Compartment__93__" id="OAA__91__Default_Compartment__93__" name="OAA" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C4H4O5"/>
+      <species metaid="OG__91__Default_Compartment__93__" id="OG__91__Default_Compartment__93__" name="OG" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C5H6O5"/>
+      <species metaid="PEP__91__Default_Compartment__93__" id="PEP__91__Default_Compartment__93__" name="PEP" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C3H5O6P"/>
+      <species metaid="Pyr__91__Default_Compartment__93__" id="Pyr__91__Default_Compartment__93__" name="Pyr" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C3H4O3"/>
+      <species metaid="Succ__91__Default_Compartment__93__" id="Succ__91__Default_Compartment__93__" name="Succ" compartment="Default_Compartment" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C4H6O4"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter sboTerm="SBO:0000626" id="FB1N0" value="0" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="FB2N1000" value="1000" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction metaid="ME1_f" id="ME1_f" name="Malate dehydrogenase (oxaloacetate-decarboxylating)" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#ME1_f">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.40"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Mal__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_maeB"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="ex_AcCoA" id="ex_AcCoA" name="ex_AcCoA" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <listOfProducts>
+          <speciesReference species="AcCoA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_ex_AcCoA"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="ACO1_ACO2" id="ACO1_ACO2" name="Aconitase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#ACO1_ACO2">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/4.2.1.3"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Cit__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Isocit__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:or>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_acnA"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_acnB"/>
+          </fbc:or>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="OGDH_DLST_DLD" id="OGDH_DLST_DLD" name="OGDH_DLST_DLD" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <listOfReactants>
+          <speciesReference species="OG__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Succ__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:and>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_lpd"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_sucA"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_sucB"/>
+          </fbc:and>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="MDH1_MDH2" id="MDH1_MDH2" name="Malate dehydrogenase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#MDH1_MDH2">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.37"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Mal__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OAA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_mdh"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="SUCC_DEH" id="SUCC_DEH" name="Fumarate reductase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#SUCC_DEH">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/1.3.99.1"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Succ__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Fum__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:and>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_frdD"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_frdA"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_frdB"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_frdC"/>
+          </fbc:and>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="CS" id="CS" name="Citrate synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#CS">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/2.3.3.1"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="AcCoA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="OAA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cit__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_gltA"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="MAS" id="MAS" name="Malate synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#MAS">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/2.3.3.9"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="AcCoA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="Gly__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Mal__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:or>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_aceB"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_glcB"/>
+          </fbc:or>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="PCK1" id="PCK1" name="PCK1" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <listOfReactants>
+          <speciesReference species="OAA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PEP__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_PCK__ONE__"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="ICL" id="ICL" name="Isocitrate lyase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#ICL">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/4.1.3.1"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Isocit__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Gly__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="Succ__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_aceA"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="PKLR" id="PKLR" name="Pyruvate kinase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#PKLR">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.1.40"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="PEP__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:or>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_pykA"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_pykF"/>
+          </fbc:or>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="PDC" id="PDC" name="PDC" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <listOfReactants>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AcCoA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_PDC"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="FUM" id="FUM" name="Fumarase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#FUM">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/4.2.1.2"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Fum__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Mal__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:or>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_fumA"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_fumC"/>
+            <fbc:geneProductRef fbc:geneProduct="gp_G_fumB"/>
+          </fbc:or>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="GPT_f" id="GPT_f" name="Alanine transaminase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#GPT_f">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.2"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="OG__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_GPT"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="IDH3A_IDH3B_IDH3G" id="IDH3A_IDH3B_IDH3G" name="Isocirate dehydrogenase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#IDH3A_IDH3B_IDH3G">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.41"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Isocit__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OG__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_icd"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="PC" id="PC" name="PC" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <listOfReactants>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OAA__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_PC"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="ME1_b" id="ME1_b" name="Malate dehydrogenase (oxaloacetate-decarboxylating)" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#ME1_b">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.40"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Mal__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_maeB"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+      <reaction metaid="GPT_b" id="GPT_b" name="Alanine transaminase" reversible="false" fast="false" fbc:lowerFluxBound="FB1N0" fbc:upperFluxBound="FB2N1000">
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#GPT_b">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.2"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="Pyr__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OG__91__Default_Compartment__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <fbc:geneProductAssociation>
+          <fbc:geneProductRef fbc:geneProduct="gp_G_GPT"/>
+        </fbc:geneProductAssociation>
+      </reaction>
+    </listOfReactions>
+    <fbc:listOfGeneProducts>
+      <fbc:geneProduct metaid="G_maeB" sboTerm="SBO:0000243" fbc:id="G_maeB" fbc:name="COBRAProtein1" fbc:label="maeB"/>
+      <fbc:geneProduct metaid="G_ex_G6P" sboTerm="SBO:0000243" fbc:id="G_ex_G6P" fbc:name="COBRAProtein2" fbc:label="ex_G6P"/>
+      <fbc:geneProduct metaid="G_ex_AcCoA" sboTerm="SBO:0000243" fbc:id="G_ex_AcCoA" fbc:name="COBRAProtein3" fbc:label="ex_AcCoA"/>
+      <fbc:geneProduct metaid="G_acnA" sboTerm="SBO:0000243" fbc:id="G_acnA" fbc:name="COBRAProtein4" fbc:label="acnA"/>
+      <fbc:geneProduct metaid="G_acnB" sboTerm="SBO:0000243" fbc:id="G_acnB" fbc:name="COBRAProtein5" fbc:label="acnB"/>
+      <fbc:geneProduct metaid="G_b1416" sboTerm="SBO:0000243" fbc:id="G_b1416" fbc:name="COBRAProtein6" fbc:label="b1416"/>
+      <fbc:geneProduct metaid="G_b1417" sboTerm="SBO:0000243" fbc:id="G_b1417" fbc:name="COBRAProtein7" fbc:label="b1417"/>
+      <fbc:geneProduct metaid="G_eno" sboTerm="SBO:0000243" fbc:id="G_eno" fbc:name="COBRAProtein8" fbc:label="eno"/>
+      <fbc:geneProduct metaid="G_gapA" sboTerm="SBO:0000243" fbc:id="G_gapA" fbc:name="COBRAProtein9" fbc:label="gapA"/>
+      <fbc:geneProduct metaid="G_gpmA" sboTerm="SBO:0000243" fbc:id="G_gpmA" fbc:name="COBRAProtein10" fbc:label="gpmA"/>
+      <fbc:geneProduct metaid="G_gpmM" sboTerm="SBO:0000243" fbc:id="G_gpmM" fbc:name="COBRAProtein11" fbc:label="gpmM"/>
+      <fbc:geneProduct metaid="G_pgk" sboTerm="SBO:0000243" fbc:id="G_pgk" fbc:name="COBRAProtein12" fbc:label="pgk"/>
+      <fbc:geneProduct metaid="G_ytjC" sboTerm="SBO:0000243" fbc:id="G_ytjC" fbc:name="COBRAProtein13" fbc:label="ytjC"/>
+      <fbc:geneProduct metaid="G_sucC" sboTerm="SBO:0000243" fbc:id="G_sucC" fbc:name="COBRAProtein14" fbc:label="sucC"/>
+      <fbc:geneProduct metaid="G_sucD" sboTerm="SBO:0000243" fbc:id="G_sucD" fbc:name="COBRAProtein15" fbc:label="sucD"/>
+      <fbc:geneProduct metaid="G_gdhA" sboTerm="SBO:0000243" fbc:id="G_gdhA" fbc:name="COBRAProtein16" fbc:label="gdhA"/>
+      <fbc:geneProduct metaid="G_lpd" sboTerm="SBO:0000243" fbc:id="G_lpd" fbc:name="COBRAProtein17" fbc:label="lpd"/>
+      <fbc:geneProduct metaid="G_sucA" sboTerm="SBO:0000243" fbc:id="G_sucA" fbc:name="COBRAProtein18" fbc:label="sucA"/>
+      <fbc:geneProduct metaid="G_sucB" sboTerm="SBO:0000243" fbc:id="G_sucB" fbc:name="COBRAProtein19" fbc:label="sucB"/>
+      <fbc:geneProduct metaid="G_tpiA" sboTerm="SBO:0000243" fbc:id="G_tpiA" fbc:name="COBRAProtein20" fbc:label="tpiA"/>
+      <fbc:geneProduct metaid="G_aspC" sboTerm="SBO:0000243" fbc:id="G_aspC" fbc:name="COBRAProtein21" fbc:label="aspC"/>
+      <fbc:geneProduct metaid="G_mdh" sboTerm="SBO:0000243" fbc:id="G_mdh" fbc:name="COBRAProtein22" fbc:label="mdh"/>
+      <fbc:geneProduct metaid="G_GLUD1_NADH_" sboTerm="SBO:0000243" fbc:id="G_GLUD1_NADH_" fbc:name="COBRAProtein23" fbc:label="GLUD1_NADH_"/>
+      <fbc:geneProduct metaid="G_pgi" sboTerm="SBO:0000243" fbc:id="G_pgi" fbc:name="COBRAProtein24" fbc:label="pgi"/>
+      <fbc:geneProduct metaid="G_frdA" sboTerm="SBO:0000243" fbc:id="G_frdA" fbc:name="COBRAProtein25" fbc:label="frdA"/>
+      <fbc:geneProduct metaid="G_frdB" sboTerm="SBO:0000243" fbc:id="G_frdB" fbc:name="COBRAProtein26" fbc:label="frdB"/>
+      <fbc:geneProduct metaid="G_frdC" sboTerm="SBO:0000243" fbc:id="G_frdC" fbc:name="COBRAProtein27" fbc:label="frdC"/>
+      <fbc:geneProduct metaid="G_frdD" sboTerm="SBO:0000243" fbc:id="G_frdD" fbc:name="COBRAProtein28" fbc:label="frdD"/>
+      <fbc:geneProduct metaid="G_SUCLG2_SUCLG1_SUCLA2_GTP_" sboTerm="SBO:0000243" fbc:id="G_SUCLG2_SUCLG1_SUCLA2_GTP_" fbc:name="COBRAProtein29" fbc:label="SUCLG2_SUCLG1_SUCLA2_GTP_"/>
+      <fbc:geneProduct metaid="G_pfkA" sboTerm="SBO:0000243" fbc:id="G_pfkA" fbc:name="COBRAProtein30" fbc:label="pfkA"/>
+      <fbc:geneProduct metaid="G_pfkB" sboTerm="SBO:0000243" fbc:id="G_pfkB" fbc:name="COBRAProtein31" fbc:label="pfkB"/>
+      <fbc:geneProduct metaid="G_gltA" sboTerm="SBO:0000243" fbc:id="G_gltA" fbc:name="COBRAProtein32" fbc:label="gltA"/>
+      <fbc:geneProduct metaid="G_fbp" sboTerm="SBO:0000243" fbc:id="G_fbp" fbc:name="COBRAProtein33" fbc:label="fbp"/>
+      <fbc:geneProduct metaid="G_aceB" sboTerm="SBO:0000243" fbc:id="G_aceB" fbc:name="COBRAProtein34" fbc:label="aceB"/>
+      <fbc:geneProduct metaid="G_glcB" sboTerm="SBO:0000243" fbc:id="G_glcB" fbc:name="COBRAProtein35" fbc:label="glcB"/>
+      <fbc:geneProduct metaid="G_PCK1" sboTerm="SBO:0000243" fbc:id="G_PCK1" fbc:name="COBRAProtein36" fbc:label="PCK1"/>
+      <fbc:geneProduct metaid="G_aceA" sboTerm="SBO:0000243" fbc:id="G_aceA" fbc:name="COBRAProtein37" fbc:label="aceA"/>
+      <fbc:geneProduct metaid="G_fbaA" sboTerm="SBO:0000243" fbc:id="G_fbaA" fbc:name="COBRAProtein38" fbc:label="fbaA"/>
+      <fbc:geneProduct metaid="G_fbaB" sboTerm="SBO:0000243" fbc:id="G_fbaB" fbc:name="COBRAProtein39" fbc:label="fbaB"/>
+      <fbc:geneProduct metaid="G_ydjI" sboTerm="SBO:0000243" fbc:id="G_ydjI" fbc:name="COBRAProtein40" fbc:label="ydjI"/>
+      <fbc:geneProduct metaid="G_pykA" sboTerm="SBO:0000243" fbc:id="G_pykA" fbc:name="COBRAProtein41" fbc:label="pykA"/>
+      <fbc:geneProduct metaid="G_pykF" sboTerm="SBO:0000243" fbc:id="G_pykF" fbc:name="COBRAProtein42" fbc:label="pykF"/>
+      <fbc:geneProduct metaid="G_PDC" sboTerm="SBO:0000243" fbc:id="G_PDC" fbc:name="COBRAProtein43" fbc:label="PDC"/>
+      <fbc:geneProduct metaid="G_fumA" sboTerm="SBO:0000243" fbc:id="G_fumA" fbc:name="COBRAProtein44" fbc:label="fumA"/>
+      <fbc:geneProduct metaid="G_fumB" sboTerm="SBO:0000243" fbc:id="G_fumB" fbc:name="COBRAProtein45" fbc:label="fumB"/>
+      <fbc:geneProduct metaid="G_fumC" sboTerm="SBO:0000243" fbc:id="G_fumC" fbc:name="COBRAProtein46" fbc:label="fumC"/>
+      <fbc:geneProduct metaid="G_GPT" sboTerm="SBO:0000243" fbc:id="G_GPT" fbc:name="COBRAProtein47" fbc:label="GPT"/>
+      <fbc:geneProduct metaid="G_icd" sboTerm="SBO:0000243" fbc:id="G_icd" fbc:name="COBRAProtein48" fbc:label="icd"/>
+      <fbc:geneProduct metaid="G_PC" sboTerm="SBO:0000243" fbc:id="G_PC" fbc:name="COBRAProtein49" fbc:label="PC"/>
+      <fbc:geneProduct fbc:id="gp_G_maeB" fbc:label="G_maeB"/>
+      <fbc:geneProduct fbc:id="gp_G_ex_AcCoA" fbc:label="G_ex_AcCoA"/>
+      <fbc:geneProduct fbc:id="gp_G_acnA" fbc:label="G_acnA"/>
+      <fbc:geneProduct fbc:id="gp_G_acnB" fbc:label="G_acnB"/>
+      <fbc:geneProduct fbc:id="gp_G_lpd" fbc:label="G_lpd"/>
+      <fbc:geneProduct fbc:id="gp_G_sucA" fbc:label="G_sucA"/>
+      <fbc:geneProduct fbc:id="gp_G_sucB" fbc:label="G_sucB"/>
+      <fbc:geneProduct fbc:id="gp_G_mdh" fbc:label="G_mdh"/>
+      <fbc:geneProduct fbc:id="gp_G_frdD" fbc:label="G_frdD"/>
+      <fbc:geneProduct fbc:id="gp_G_frdA" fbc:label="G_frdA"/>
+      <fbc:geneProduct fbc:id="gp_G_frdB" fbc:label="G_frdB"/>
+      <fbc:geneProduct fbc:id="gp_G_frdC" fbc:label="G_frdC"/>
+      <fbc:geneProduct fbc:id="gp_G_gltA" fbc:label="G_gltA"/>
+      <fbc:geneProduct fbc:id="gp_G_aceB" fbc:label="G_aceB"/>
+      <fbc:geneProduct fbc:id="gp_G_glcB" fbc:label="G_glcB"/>
+      <fbc:geneProduct fbc:id="gp_G_PCK__ONE__" fbc:label="G_PCK1"/>
+      <fbc:geneProduct fbc:id="gp_G_aceA" fbc:label="G_aceA"/>
+      <fbc:geneProduct fbc:id="gp_G_pykA" fbc:label="G_pykA"/>
+      <fbc:geneProduct fbc:id="gp_G_pykF" fbc:label="G_pykF"/>
+      <fbc:geneProduct fbc:id="gp_G_PDC" fbc:label="G_PDC"/>
+      <fbc:geneProduct fbc:id="gp_G_fumA" fbc:label="G_fumA"/>
+      <fbc:geneProduct fbc:id="gp_G_fumC" fbc:label="G_fumC"/>
+      <fbc:geneProduct fbc:id="gp_G_fumB" fbc:label="G_fumB"/>
+      <fbc:geneProduct fbc:id="gp_G_GPT" fbc:label="G_GPT"/>
+      <fbc:geneProduct fbc:id="gp_G_icd" fbc:label="G_icd"/>
+      <fbc:geneProduct fbc:id="gp_G_PC" fbc:label="G_PC"/>
+    </fbc:listOfGeneProducts>
+    <groups:listOfGroups>
+      <groups:group sboTerm="SBO:0000633" groups:id="group1" groups:kind="partonomy">
+        <groups:listOfMembers>
+          <groups:member groups:idRef="ex_AcCoA"/>
+          <groups:member groups:idRef="ACO1_ACO2"/>
+          <groups:member groups:idRef="MDH1_MDH2"/>
+          <groups:member groups:idRef="SUCC_DEH"/>
+          <groups:member groups:idRef="CS"/>
+          <groups:member groups:idRef="MAS"/>
+          <groups:member groups:idRef="PCK1"/>
+          <groups:member groups:idRef="ICL"/>
+          <groups:member groups:idRef="PDC"/>
+          <groups:member groups:idRef="FUM"/>
+          <groups:member groups:idRef="IDH3A_IDH3B_IDH3G"/>
+          <groups:member groups:idRef="PC"/>
+        </groups:listOfMembers>
+      </groups:group>
+      <groups:group sboTerm="SBO:0000633" groups:id="group2" groups:name="Alanine and Aspartate Metabolism" groups:kind="partonomy">
+        <groups:listOfMembers>
+          <groups:member groups:idRef="GPT_f"/>
+          <groups:member groups:idRef="GPT_b"/>
+        </groups:listOfMembers>
+      </groups:group>
+      <groups:group sboTerm="SBO:0000633" groups:id="group3" groups:name="Anaplerotic reactions" groups:kind="partonomy">
+        <groups:listOfMembers>
+          <groups:member groups:idRef="ME1_f"/>
+          <groups:member groups:idRef="ME1_b"/>
+        </groups:listOfMembers>
+      </groups:group>
+      <groups:group sboTerm="SBO:0000633" groups:id="group4" groups:name="Citric Acid Cycle" groups:kind="partonomy">
+        <groups:listOfMembers>
+          <groups:member groups:idRef="OGDH_DLST_DLD"/>
+        </groups:listOfMembers>
+      </groups:group>
+      <groups:group sboTerm="SBO:0000633" groups:id="group5" groups:name="Glycolysis/Gluconeogenesis" groups:kind="partonomy">
+        <groups:listOfMembers>
+          <groups:member groups:idRef="PKLR"/>
+        </groups:listOfMembers>
+      </groups:group>
+    </groups:listOfGroups>
+  </model>
+</sbml>
