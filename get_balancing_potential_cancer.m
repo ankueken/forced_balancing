@@ -1,7 +1,7 @@
 clear
 
 %% organism specific GEMs
-result_directory = 'Results_directionally_coupled_cancer_GEMs';
+result_directory = 'Results_forced_balancing_cancer_GEMs';
 
 %% calculate balancing potential
 files = dir([result_directory '\*.mat']);
@@ -62,7 +62,7 @@ end
 
 complexes = cell(length(files),1);
 for f=1:length(files)
-    load(['Results_directionally_coupled_cancer_GEMs\' files(f).name],'Max_dc','Min_dc','model','B')
+    load(['Results_forced_balancing_cancer_GEMs\' files(f).name],'Max_dc','Min_dc','model','B')
     Qi{f} = sum(Max_dc==0 & Min_dc==0,2); 
 
     BALANCED{f} = B;

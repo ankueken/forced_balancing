@@ -1,7 +1,7 @@
-function lethality_check(f)
+function lethality_check_forced_balancing(f)
 
-files=dir('balanced/*.mat');
-load(['balanced/' files(f).name],'model')
+files=dir('Results_forced_balancing_cancer_GEMs/*.mat');
+load(['Results_forced_balancing_cancer_GEMs/' files(f).name],'model')
 
 objective=zeros(size(model.c));
 bio = find(contains(model.rxns,'bio','IgnoreCase',true));
@@ -36,7 +36,7 @@ else
           
 end
 
-save(['lethality/' files(f).name])
+save(['Results_lethality/' files(f).name])
 
 
 end

@@ -1,7 +1,7 @@
-function run_get_coupling_random(f)
+function get_clean_model(f)
 disp(f)
 
-files = dir('cancer_models/*.xml');
+files = dir('cancer_models/*.xml'); %update according to model folder
 name = files(f).name(1:end-4)
 
 % change to COBRA path
@@ -30,23 +30,17 @@ model=removeRxns(model,BLK);
 
 [sol.x,sol.f,sol.stat,sol.output]=linprog(-model.c,model.S(model.csense=='L',:),model.b(model.csense=='L'),model.S(model.csense=='E',:),model.b(model.csense=='E'),model.lb,model.ub);
 
-if abs(sol.f)<abs(solo.f)*0.5
-    disp('No biomass due to removal of blocked reactions')
-    save(['Results/Problems/' name '.mat'])
-    return
-end
-
 clear BLK sol solo files
 
 model=convertToIrreversible(model);
-
-save(strcat('cancer_models/' ,name, '.mat'),"model")
+cd Functions/
+save(strcat('../cancer_models/cancer_models_pre_processed/final_cancer_models/' ,name, '.mat'),"model")
 
 % pathToR = '"C:\Users\Anika\AppData\Local\Programs\R\R-4.3.0\bin\Rscript.exe"';
 
-system(strjoin({'Rscript get_AY_matrix.r',strcat('final_cancer_models/', name,'.mat')}));
+system(strjoin({pathToR 'get_AY_matrix.r',strcat('../cancer_models/cancer_models_pre_processed/final_cancer_models/', name,'.mat')}));
 
-cd final_cancer_models/
+cd ../cancer_models/cancer_models_pre_processed/final_cancer_models/
 
 A=importdata(strcat(name,'.A'));
 model.A=sparse(A.data);
@@ -55,8 +49,8 @@ clear A
 Y=importdata(strcat(name,'.Y'));
 model.Y=sparse(Y.data);
 clear Y 
-cd ../
+cd ../../../
 
-save(['Results/pre_balanced/' name '_pre_balanced.mat'],'-v7.3')
+save(['Results_balanced_cancer/pre_balanced_cancer/' name '_pre_balanced.mat'],'-v7.3')
 
 end
