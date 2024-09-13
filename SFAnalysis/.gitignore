@@ -1,0 +1,14 @@
+*.pyc
+*.pdf
+*.pkl
+*.o*
+*.sh
+*.p
+*.csv
+.ipynb_checkpoints/
+oldorplay/
+output/
+local/
+pando/
+analysis/
+*error*
