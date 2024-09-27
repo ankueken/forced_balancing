@@ -110,7 +110,7 @@ def plpval(x, alpha, xmin, gof):
         p            p-value of the returned fit (reject PL hypothesis for p<0.1)
     """
     # set desired precision level in p-value
-    eps = 0.1
+    eps = 0.01
     #num_resamps = int(np.ceil((1./4)*eps**(-2)))
     num_resamps = 1000
     bootstraps = np.zeros(num_resamps)

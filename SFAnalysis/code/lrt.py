@@ -145,7 +145,7 @@ def exp(x, LplV, decisionthresh):
         dexp = decide(normR, p, decisionthresh)
     else:
         dexp = 2
-    return dexp
+    return [dexp, lam]
 
 def ln(x,LplV, decisionthresh):
     """
@@ -170,7 +170,7 @@ def ln(x,LplV, decisionthresh):
         dln = decide(normR, p, decisionthresh)
     else:
         dln = 2
-    return dln
+    return [dln, theta]
 
 def strexp(x,LplV, decisionthresh):
     """
@@ -195,7 +195,7 @@ def strexp(x,LplV, decisionthresh):
         dstrexp = decide(normR, p, decisionthresh)
     else:
         dstrexp = 2
-    return dstrexp
+    return [dstrexp, theta]
 
 def nested(x, alpha, decisionthresh=0.1):
     """
@@ -226,7 +226,7 @@ def nested(x, alpha, decisionthresh=0.1):
         dplwc = decidenested(R, p, 0.1)
     else:
         dplwc = 2
-    return dplwc
+    return [dplwc, alpha, lam]
 
 def nonnested(x, alpha, decisionthresh=0.1):
     """
@@ -250,10 +250,10 @@ def nonnested(x, alpha, decisionthresh=0.1):
     """
     LplV = pllogpdf(x,alpha)
     # compare exponential
-    dexp = exp(x,LplV, decisionthresh)
+    [dexp, exp_param] = exp(x,LplV, decisionthresh)
     # compare log normal
-    dln = ln(x,LplV, decisionthresh)
+    [dln, ln_param] = ln(x,LplV, decisionthresh)
     # compare stretched exponential
-    dstrexp = strexp(x,LplV, decisionthresh)
+    [dstrexp, strexp_param] = strexp(x,LplV, decisionthresh)
 
-    return [dexp, dln, dstrexp]
+    return [dexp, exp_param, dln, ln_param, dstrexp, strexp_param]

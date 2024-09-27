@@ -1,7 +1,7 @@
 clear
 
 %% organism specific GEMs
-result_directory = 'Results_directionally_coupled_organism_GEMs';
+result_directory = 'Results_forced_balancing_organism_GEMs';
 
 %% calculate balancing potential
 files = dir([result_directory '\*.mat']);
@@ -48,7 +48,7 @@ for f=1:length(files)
     clear r_check c_check Rf objective r i options model coupling_pairs class_with_balanced Max_dc* Min_dc
     Qi_non_triv_type_2{f} = sum(Dc_non_triv_type_2{f},2);
 
-    zero_potential{f} = (sum(Qi{f}==0)-length(B))/(length(Qi{f}-length(B)))
+    zero_potential{f} = (sum(Qi{f}==0)-length(B))/(length(Qi{f}-length(B)));
     clear B
 end
 save('Results_balancing_potential_organism_GEMs.mat')
@@ -88,3 +88,74 @@ ylim([0 100])
 set(gca,'colororder',parula(3))
 
 R=table(label_names',Qi_percentage'*100, Qi_non_triv_percentage'*100, Qi_non_triv_type_2_percentage'*100, 'VariableNames',{'model' 'Qi' 'Qi_non_triv' 'Qi_non_triv_type_II'})
+
+%% Fit power-law and other distributions 
+
+% use SFAnalysis
+nbins=20;
+
+for f=1:length(files)
+    [BinCounts,BinEdges] = hist(Qi{f},1:length(Qi{f}),nbins);
+    
+    Bin.Count = BinCounts';
+    Bin.Center = BinEdges';
+    
+    Bin_reduced.Center = log10(Bin.Center(Bin.Count>0)); % balancing potential > 0
+    Bin_reduced.Count = Bin.Count(Bin.Count>0); % frequency
+    Bin_reduced.Count = log10(Bin_reduced.Count/sum(Bin_reduced.Count));
+
+     writetable(table(Bin.Center(Bin.Count>0),Bin.Count(Bin.Count>0),'VariableNames',{'xvalue','counts'}),...
+         ['SFAnalysis/fit_balancing_potential/degseqs_GEM/' files(f).name(1:end-3) 'txt'],'Delimiter',',')
+  clear Bin*
+
+end
+
+%% KS-test pvalues
+
+% load best fitted parameters from Suppl Table S2
+Param_Table = readtable('/Users/Anika/Nextcloud/Manuscripts/ACTIVE/directionally_coupling/PlosCompBiol/Supplementary_Table_S2_updated.xlsx');
+
+for f=1:length(files)
+    count_Data = readtable(['SFAnalysis\fit_balancing_potential\degseqs_GEM\' files(f).name(1:end-3) 'txt']);
+
+    pl_data = count_Data.xvalue.^-Param_Table.a_1(f);
+    [~,ppl(f,1),statpl(f,1)] = kstest2(count_Data.counts/max(count_Data.counts),pl_data);
+
+    % plot(count_Data.xvalue,pl_data)
+    % hold on
+    % plot(count_Data.xvalue,count_Data.counts/max(count_Data.counts))
+    % set(gca,'XScale','log','YScale','log')
+
+    plwc_data = count_Data.xvalue.^-Param_Table.a(f) .* exp(-Param_Table.b(f)*count_Data.xvalue);
+    [~,pplwc(f,1),statplwc(f,1)] = kstest2(count_Data.counts/max(count_Data.counts),plwc_data);
+
+    % plot(count_Data.xvalue,plwc_data)
+    % hold on
+    % plot(count_Data.xvalue,count_Data.counts/max(count_Data.counts))
+    % set(gca,'XScale','log','YScale','log')
+
+    exp_data = exp(-Param_Table.a_2(f)*count_Data.xvalue);
+    [~,pexp(f,1),statexp(f,1)] = kstest2(count_Data.counts/max(count_Data.counts),exp_data);
+
+    % plot(count_Data.xvalue,exp_data)
+    % hold on
+    % plot(count_Data.xvalue,count_Data.counts/max(count_Data.counts))
+    % set(gca,'XScale','log','YScale','log')
+
+    ln_data = (1/count_Data.xvalue)' .* exp(-( ((log(count_Data.xvalue)-Param_Table.mu(f)).^2) / (2*Param_Table.sigma(f).^2) ));
+    [~,pln(f,1),statln(f,1)] = kstest2(count_Data.counts/max(count_Data.counts),ln_data);
+
+    % plot(count_Data.xvalue,ln_data)
+    % hold on
+    % plot(count_Data.xvalue,count_Data.counts/max(count_Data.counts))
+    % set(gca,'XScale','log','YScale','log')
+
+    strexp_data = exp(-(count_Data.xvalue/Param_Table.b_1(f)).^Param_Table.a_3(f));
+    [~,pstrexp(f,1),statstrexp(f,1)] = kstest2(count_Data.counts/max(count_Data.counts),strexp_data);
+
+    % plot(count_Data.xvalue,strexp_data)
+    % hold on
+    % plot(count_Data.xvalue,count_Data.counts/max(count_Data.counts))
+    % set(gca,'XScale','log','YScale','log')
+
+end

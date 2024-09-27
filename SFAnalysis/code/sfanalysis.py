@@ -464,9 +464,10 @@ def write_degree_sequences(gml_dir, deg_dir):
 def organize_degree_sequences(deg_dir):
     fnV = [file for file in os.listdir(deg_dir) if file.split('.')[-1] in
                                                                 ['txt', 'csv']]
-    analysis_df = pd.DataFrame(columns=['fp_gml', 'n', 'alpha', 'xmin','ntail',
-                                        'Lpl', 'ppl', 'dexp', 'dln', 'dstrexp',
-                                         'dplwc', 'meandeg'], index = fnV)
+    analysis_df = pd.DataFrame(columns=['fp_gml', 'n', 'alpha', 'xmin','ntail','Lpl','ppl',
+                                        'gof', 'pval', 'dexp', 'dln', 'dstrexp',
+                                        'dplwc', 'exp_lam', 'ln_theta', 'strexp_theta',
+                                         'plwc_param', 'meandeg'], index = fnV)
 
     for fn in fnV:
         analysis_df.loc[fn]['fp_gml'] = 'na'
@@ -508,46 +509,55 @@ def analyze_degree_sequences(deg_dir, analysis):
             errormessage = "%s has a bad mean degree \n" %fp
             writeerror_analysis(errormessage)
         # catch for trivial degree sequences
-        elif len(np.unique(x)) == 1:
+        if len(np.unique(x)) == 1:
             errormessage = "%s contains only one unique value \n" %fp
             writeerror_analysis(errormessage)
-        else:
-            if pd.isna(analysis['ppl'][fn]): 
-                analysis['n'][fn] = n
-                [alpha, xmin, ntail,  L, ks] = fit.pl(x)
-                p = fit.plpval(x,alpha, xmin, ks)
-                analysis['alpha'][fn] = alpha
-                analysis['xmin'][fn] = xmin
-                analysis['ntail'][fn] = ntail
-                analysis['Lpl'][fn] = L
-                analysis['ppl'][fn] = p
-            if pd.isna(analysis['dexp'][fn]):
-                # compare the alternative distributions
-                xmin = analysis['xmin'][fn]
-                alpha = analysis['alpha'][fn]
-                x = x[x>=xmin]
-                # compare the non-nested alternatives, return the decisions for each
-                decisionthresh = 0.1
-                [dexp, dln, dstrexp] = lrt.nonnested(x,alpha, decisionthresh)
-                if dexp == 2:
-                    errormessage = "Exponential didn't converge for %s \n" %fp
-                    writeerror_lrt(errormessage)
-                if dln == 2:
-                    errormessage = "Log-normal didn't converge for %s \n" %fp
-                    writeerror_lrt(errormessage)
-                if dstrexp == 2:
-                    errormessage = "Stretched exponential didn't converge for %s \n" %fp
-                    writeerror_lrt(errormessage)
-                # fit the nested alternatives
-                dplwc = lrt.nested(x, alpha, decisionthresh)
-                if dplwc == 2:
-                    errormessage = "PLWC didn't converge for %s \n" %fp
-                    writeerror_lrt(errormessage)
-                # update dataframe
-                analysis['dexp'][fn] = dexp
-                analysis['dln'][fn] = dln
-                analysis['dstrexp'][fn] = dstrexp
-                analysis['dplwc'][fn] = dplwc
+        
+        if pd.isna(analysis['ppl'][fn]): 
+            analysis['n'][fn] = n
+            [alpha, xmin, ntail,  L, ks] = fit.pl(x)
+            p = fit.plpval(x,alpha, xmin, ks)
+            analysis['alpha'][fn] = alpha
+            analysis['xmin'][fn] = xmin
+            analysis['ntail'][fn] = ntail
+            analysis['Lpl'][fn] = L
+            analysis['ppl'][fn] = p
+        if pd.isna(analysis['dexp'][fn]):
+            # compare the alternative distributions
+            xmin = analysis['xmin'][fn]
+            alpha = analysis['alpha'][fn]
+            x = x[x>=xmin]
+            # compare the non-nested alternatives, return the decisions for each
+            decisionthresh = 0.1
+            lam_exp = 0
+            theta_ln =[0,0]
+            theta_strexp=[0,0]
+            alpha_plwc=0
+            lam_plwc=0
+            [dexp, lam_exp, dln, theta_ln, dstrexp, theta_strexp] = lrt.nonnested(x,alpha, decisionthresh)
+            if dexp == 2:
+                errormessage = "Exponential didn't converge for %s \n" %fp
+                writeerror_lrt(errormessage)
+            if dln == 2:
+                errormessage = "Log-normal didn't converge for %s \n" %fp
+                writeerror_lrt(errormessage)
+            if dstrexp == 2:
+                errormessage = "Stretched exponential didn't converge for %s \n" %fp
+                writeerror_lrt(errormessage)
+            # fit the nested alternatives
+            [dplwc, alpha_plwc, lam_plwc] = lrt.nested(x, alpha, decisionthresh)
+            if dplwc == 2:
+                errormessage = "PLWC didn't converge for %s \n" %fp
+                writeerror_lrt(errormessage)
+            # update dataframe
+            analysis['dexp'][fn] = dexp
+            analysis['dln'][fn] = dln
+            analysis['dstrexp'][fn] = dstrexp
+            analysis['dplwc'][fn] = dplwc
+            analysis['exp_lam'][fn] = lam_exp
+            analysis['ln_theta'][fn] = theta_ln
+            analysis['strexp_theta'][fn] = theta_strexp
+            analysis['plwc_param'][fn] = [alpha_plwc, lam_plwc]
     return analysis
 
 """ Helper functions for categorizing networks into scale-free types"""

@@ -28,6 +28,6 @@ for i=1:length(coupling_pairs)
 end
 [row_inx,col_inx]=find(Max_dc_no_f==0 & Min_dc==0);
 directionally_coupled_pairs=[row_inx,col_inx]; % row fixed to 0, col is optimized
-save(strcat('Results_forced_balancing_organism_GEMs/',name,'.mat'))
+save(strcat('Results_forced_balancing_cancer_GEMs/',name,'.mat'))
 
 

@@ -31,7 +31,7 @@ save('Results_balancing_potential_cancer_GEMs.mat')
 nbins=20;
 
 for f=1:length(files)
-    [BinCounts,BinEdges] = hist(Qi{f},1:2:length(Qi{f}),nbins);
+    [BinCounts,BinEdges] = hist(Qi{f},1:length(Qi{f}),nbins);
     
     Bin.Count = BinCounts';
     Bin.Center = BinEdges';
@@ -40,9 +40,14 @@ for f=1:length(files)
     Bin_reduced.Count = Bin.Count(Bin.Count>0); % frequency
     Bin_reduced.Count = log10(Bin_reduced.Count/sum(Bin_reduced.Count));
 
-     writetable(table(Bin.Center(Bin.Count>0),Bin.Count(Bin.Count>0),'VariableNames',{'xvalue','counts'}),...
-         ['../SFAnalysis/example/degseqs/' files(f).name(1:end-3) 'txt'],'Delimiter',',')
-  clear Bin*
+    if contains(files(f).name, 'cancer')
+        writetable(table(Bin.Center(Bin.Count>0),Bin.Count(Bin.Count>0),'VariableNames',{'xvalue','counts'}),...
+            ['SFAnalysis/fit_balancing_potential/degseqs_cancer/' files(f).name(1:end-3) 'txt'],'Delimiter',',')
+    else
+        writetable(table(Bin.Center(Bin.Count>0),Bin.Count(Bin.Count>0),'VariableNames',{'xvalue','counts'}),...
+            ['SFAnalysis/fit_balancing_potential/degseqs_healthy/' files(f).name(1:end-3) 'txt'],'Delimiter',',')
+    end
+    clear Bin*
 
 end
 
