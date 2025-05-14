@@ -12,13 +12,25 @@ for f=1:length(filesH)
     disp(filesH(f).name)
     
     C.complexes = cell(length(C.model.complexes),1);
+    C.complexes_long = cell(length(C.model.complexes),1);
         for i=1:length(C.model.complexes)
             C.complexes{i,1} = strjoin(strcat(num2str(C.model.Y(C.model.Y(:,i)~=0,i)), '*', C.model.mets(C.model.Y(:,i)~=0) ),'+');
+            if all((C.model.Y(:,i)~=0) == 0)
+                compartment = '';
+            else
+
+            temp = C.model.mets{C.model.Y(:,i)~=0};
+            compartment = strsplit(temp,'[');
+            compartment = ['[' compartment{2}];
+            end
+            C.complexes_long{i,1} = strjoin(strcat(num2str(C.model.Y(C.model.Y(:,i)~=0,i)), '*', C.model.metNames(C.model.Y(:,i)~=0),compartment ), '+');
         end
     
     H.complexes = cell(length(H.model.complexes),1);
+    H.complexes_long = cell(length(H.model.complexes),1);
         for i=1:length(H.model.complexes)
             H.complexes{i,1} = strjoin(strcat(num2str(H.model.Y(H.model.Y(:,i)~=0,i)), '*', H.model.mets(H.model.Y(:,i)~=0) ),'+');
+            H.complexes_long{i,1} = strjoin(strcat(num2str(H.model.Y(H.model.Y(:,i)~=0,i)), '*', H.model.metNames(H.model.Y(:,i)~=0) ),'+');
         end
     
     [joint_complexes, inx_joint_C, inx_joint_H] = intersect(C.complexes,H.complexes);
@@ -27,6 +39,7 @@ for f=1:length(filesH)
     lethal_candidates = find(C.Bio_after_balancing(inx_joint_C)==0 & H.Bio_after_balancing(inx_joint_H)>0.9*H.Bio_opt);
         
     CANDIDATE_COMPLEXES{f,1} = C.complexes(inx_joint_C(lethal_candidates));
+    CANDIDATE_COMPLEXES_LONG{f,1} = C.complexes_long(inx_joint_C(lethal_candidates));
     [~,candidate_rxns{f,1}] = find(C.model.A(inx_joint_C(lethal_candidates),:)~=0);
     [~,candidate_rxns_H{f,1}] = find(H.model.A(inx_joint_H(lethal_candidates),:)~=0);
     CANDIDATE_EC{f,1} = C.model.rxnECNumbers(candidate_rxns{f,1});
@@ -69,7 +82,8 @@ for f = 1:9
 
     exchange_rxns = all(C.model.S>=0) + all(C.model.S<=0);
     [exchange_mets,~] = find(C.model.S(:,exchange_rxns~=0)~=0);
-    exchange_mets=unique(exchange_mets);
+    exchange_mets=C.model.mets(unique(exchange_mets));
+    exchange_mets = cellfun(@(x) x(1:end-3), exchange_mets,'UniformOutput',false);
         
     lethal_candidates = find(C.Bio_after_balancing(inx_joint_C)==0 & H.Bio_after_balancing(inx_joint_H)>0.9*H.Bio_opt);
         
@@ -99,7 +113,8 @@ for f = 1:9
         bio_candidate_rxns = Crxns.Bio_after_balancing(candidate_rxns_C{f});
         percentage_essential{f}(i) = sum(bio_candidate_rxns==0)/length(bio_candidate_rxns);
 
-        if percentage_essential{f}(i) == 0 && isempty(intersect(exchange_mets,find(C.model.Y(:,inx_joint_C(lethal_candidates(i)))~=0)))
+        complex_mets_temp = cellfun(@(x) x(1:end-3), C.model.mets(find(C.model.Y(:,inx_joint_C(lethal_candidates(i)))~=0)), 'UniformOutput', false);
+        if percentage_essential{f}(i) == 0 && isempty(intersect(exchange_mets,complex_mets_temp))
             CANDIDATE_COMPLEXES_no_essential{f,1}{end+1,1} = C.complexes_long(inx_joint_C(lethal_candidates(i)));
         end
 
